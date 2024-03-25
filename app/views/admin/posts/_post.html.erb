@@ -52,7 +52,7 @@
           <span><img src="<%= asset_path("icon/update.svg") %>" alt="icon-update"></span>
         <% end %>
       </div>
-      <div class="action-delete" data-action="click->post#openModal" data-id="<%= post.id %>">
+      <div class="action-delete" data-action="click->post#openModal" data-slug="<%= post.slug %>">
         <span><img src="<%= asset_path("icon/delete.svg") %>" alt="icon-delete"></span>
       </div>
     </div>

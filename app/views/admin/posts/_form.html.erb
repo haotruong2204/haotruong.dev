@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @post], html: { class: "block-create__form", data: { turbo: false } } do |f| %>
+<%= simple_form_for [:admin, @post], url: @post.persisted? ? admin_post_path(slug: @post.slug) : admin_posts_path, html: { class: "block-create__form", data: { turbo: false } } do |f| %>
   <div class="fields">
     <div class="fields__left">
       <div class="fields-top">
@@ -9,6 +9,16 @@
               value: f.object.title, id: "title",
               autocomplete: "off",
               placeholder: "e.g. Tiêu đề bài viết" }, label: false %>
+        </div>
+
+        <div class="field">
+          <label for="description" class="form-label">Mô tả</label>
+          <%= f.input :description, as: :text,
+            input_html: {
+              value: f.object.description, id: "description",
+              autocomplete: "off", class: "custom",
+              placeholder: "e.g. Mô tả bài viết",
+              rows: 4 }, label: false %>
         </div>
 
         <div class="field" data-controller="upload">

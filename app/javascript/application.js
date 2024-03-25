@@ -42,3 +42,12 @@ $('input[name="post[status]"]').on("change", function(){
     $(".set-time").removeClass("d-none");
   }
 })
+
+window.onload = function() {
+  $('.button_container').click(function(e) {
+    e.preventDefault();
+    $('body').toggleClass('overlay');
+    $('.button_container').toggleClass('active');
+    $('.menu').toggleClass('open');
+  });
+};

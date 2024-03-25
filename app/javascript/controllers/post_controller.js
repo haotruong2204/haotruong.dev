@@ -19,11 +19,11 @@ export default class extends Controller {
 
   openModal() {
     const modalDelete = document.querySelector("#modal-delete-post");
-    const postId = this.element.querySelector(".action-delete").dataset.id;
+    const postSlug = this.element.querySelector(".action-delete").dataset.slug;
 
     modalDelete.classList.remove("d-none");
     document.body.classList.add("overflow-hide");
-    modalDelete.dataset.id = postId;
+    modalDelete.dataset.slug = postSlug;
   }
 
   closeModal() {
@@ -34,10 +34,10 @@ export default class extends Controller {
   }
 
   removePost() {
-    const postId = this.element.dataset.id;
-    const url = `/admin/posts/${postId}`
+    const postSlug = this.element.dataset.slug;
+    const url = `/admin/posts/${postSlug}`
     let token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-
+    console.log(postSlug);
     fetch(url, {
       method: 'DELETE',
       headers: {
