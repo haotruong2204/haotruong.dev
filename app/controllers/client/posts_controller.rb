@@ -2,6 +2,6 @@
 
 class Client::PostsController < Client::BaseController
   def show
-    @post = Post.find params[:id]
+    @post = Post.find_by(slug: params[:slug])
   end
 end

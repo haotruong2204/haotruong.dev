@@ -9,7 +9,7 @@
         <div class="post animated fadeInDown">
           <div class="post-title">
             <h2>
-              <%= link_to post.title , post_path(post) %>
+              <%= link_to post.title , post_path(post.slug) %>
             </h2>
           </div>
           <div class="post-content">
@@ -18,7 +18,7 @@
           <div class="post-footer">
             <div class="meta">
               <div class="info">
-                <%= image_tag("icon/clock.svg", alt: "icon clock") %> <span class="date"> <%= post.created_at.strftime(Settings.time.formats) %></span>
+                <%= image_tag("icon/clock2.svg", alt: "icon clock") %> <span class="date"> <%= post.created_at.strftime(Settings.time.formats) %></span>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
       <% end %>
     <% else %>
       <div class="post">
-        no post
+        Comming soon...
       </div>
     <% end %>
   </div>

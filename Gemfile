@@ -44,6 +44,9 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Use Sass to process CSS
+gem "sass-rails", "~> 6.0"
+
 group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
@@ -106,3 +109,8 @@ gem "sidekiq-status"
 
 # Config
 gem "config"
+
+# Editor
+gem "ckeditor"
+gem "mini_magick"
+gem "image_processing", "~> 1.2"

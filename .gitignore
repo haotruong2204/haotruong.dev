@@ -33,3 +33,21 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+.DS_Store
+app/.DS_Store
+app/controllers/.DS_Store
+app/views/.DS_Store
+
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+.env
+
+/dump

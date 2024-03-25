@@ -1,7 +1,7 @@
 <%= provide :title, @post.title %>
 <%= provide :url, post_path(@post) %>
 <%= provide :description, @post.description %>
-<%= provide :image, url_for(@post.cover_image) %>
+<%= provide :image, url_for(@post.cover_image) if @post.cover_image.persisted? %>
 
 <div class="autopagerize_page_element">
   <div class="content">
@@ -13,7 +13,7 @@
         <div class="post-footer">
           <div class="meta">
             <div class="info">
-              <%= image_tag("icon/clock.svg", alt: "icon clock") %> <span class="date"> <%= @post.created_at.strftime(Settings.time.formats) %></span>
+              <%= image_tag("icon/clock2.svg", alt: "icon clock") %> <span class="date"> <%= @post.created_at.strftime(Settings.time.formats) %></span>
             </div>
           </div>
         </div>

@@ -3,6 +3,6 @@
 class Client::DashboardController < Client::BaseController
   def index
     @q = Post.ransack params[:q]
-    @pagy, @posts = pagy(@q.result.where(status: true).order(created_at: :desc))
+    @pagy, @posts = pagy(@q.result.order(created_at: :desc))
   end
 end
