@@ -103,3 +103,6 @@ gem "ransack"
 # background jobs
 gem "sidekiq", "~> 6.5", ">= 6.5.7"
 gem "sidekiq-status"
+
+# Config
+gem "config"

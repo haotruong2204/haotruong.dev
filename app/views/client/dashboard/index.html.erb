@@ -4,6 +4,30 @@
 
 <div class="autopagerize_page_element">
   <div class="content">
-    demo
+    <% if @posts.present? %>
+      <% @posts.each do |post|%>
+        <div class="post animated fadeInDown">
+          <div class="post-title">
+            <h2>
+              <%= link_to post.title , post_path(post) %>
+            </h2>
+          </div>
+          <div class="post-content">
+            <p><%= post.description %></p>
+          </div>
+          <div class="post-footer">
+            <div class="meta">
+              <div class="info">
+                <%= image_tag("icon/clock.svg", alt: "icon clock") %> <span class="date"> <%= post.created_at.strftime(Settings.time.formats) %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="post">
+        no post
+      </div>
+    <% end %>
   </div>
 </div>

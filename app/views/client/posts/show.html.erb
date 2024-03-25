@@ -1,0 +1,29 @@
+<%= provide :title, @post.title %>
+<%= provide :url, post_path(@post) %>
+<%= provide :description, @post.description %>
+<%= provide :image, url_for(@post.cover_image) %>
+
+<div class="autopagerize_page_element">
+  <div class="content">
+    <div class="post-page">
+      <div class="post animated fadeInDown">
+        <div class="post-title">
+          <h1><span><b><%= @post.title %></b></span></h1>
+        </div>
+        <div class="post-footer">
+          <div class="meta">
+            <div class="info">
+              <%= image_tag("icon/clock.svg", alt: "icon clock") %> <span class="date"> <%= @post.created_at.strftime(Settings.time.formats) %></span>
+            </div>
+          </div>
+        </div>
+        <div class="post-content">
+          <%= raw @post.content %>
+        </div>
+        <div class="mb-2 block-social" >
+          <%= image_tag(asset_path("like.png"), class: "img-fluid", alt: "like & share" )%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

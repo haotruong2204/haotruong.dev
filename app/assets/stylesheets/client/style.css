@@ -275,7 +275,7 @@ a:hover {
   z-index: 3;
   background-color: #fff;
   height: 40px;
-  border-bottom: 1px solid #c6c6c6
+  border-bottom: 1px solid #e3e3e3
 }
 
 .page-top .nav {
@@ -361,7 +361,7 @@ a:hover {
   left: 0;
   position: fixed;
   z-index: 4;
-  border-right: 1px solid #c6c6c6
+  border-right: 1px solid #e3e3e3
 }
 
 .sidebar a.title {
@@ -500,6 +500,10 @@ a:hover {
   text-align: unset
 }
 
+.post .post-content {
+  margin: 8px 0
+}
+
 .post .post-content img {
   width: 100%
 }
@@ -612,7 +616,11 @@ a:hover {
 
 .post .post-footer {
   padding: 8px 0;
-  border-bottom: 1px solid #c6c6c6
+  border-bottom: 1px solid #e3e3e3
+}
+
+.post .block-social img {
+  width: 50%;
 }
 
 .post .post-footer svg {
