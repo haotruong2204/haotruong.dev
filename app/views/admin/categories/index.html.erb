@@ -1,22 +1,22 @@
 <div class="main__action">
   <div class="block-search">
-    <%= search_form_for @q, url: admin_posts_path, html: { class: "form-search" } do |f| %>
-      <%= f.search_field :title_cont, class: "form-search__field", placeholder: "Tìm kiếm bài viết" %>
+    <%= search_form_for @q, url: admin_categories_path, html: { class: "form-search" } do |f| %>
+      <%= f.search_field :title_cont, class: "form-search__field", placeholder: "Tìm kiếm danh mục" %>
       <%= f.button :button, type: :submit, class: "form-search__submit" do %>
         <img src="<%= asset_path("icon/search.svg") %>" alt="icon-search">
       <% end %>
     <% end %>
   </div>
   <div class="block-create">
-    <a href="<%= new_admin_post_path %>">
+    <a href="<%= new_admin_category_path %>">
       <img src="<%= asset_path("icon/plus-square.svg") %>" alt="icon-search">
-      <span>Thêm bài viết</span>
+      <span>Thêm danh mục</span>
     </a>
   </div>
 </div>
 
-<% if @posts.exists? %>
-  <div class="data-list" data-post-target="post">
+<% if @categories.exists? %>
+  <div class="data-list" data-post-target="category">
     <div class="data-list__main">
       <table class="table data-list__posts">
         <thead>
@@ -27,21 +27,22 @@
                 <span class="checkmark"></span>
               </label>
             </th>
-            <th>Ảnh bìa</th>
+            <th>Ảnh</th>
             <th>
-              <span>Thông tin bài viết</span>
+              <span>
+                Thông tin danh mục
+              </span>
             </th>
             <th>
-              <span>Đường dẫn, Tags, Danh mục</span>
-            </th>
-            <th>
-              <span>Lượt xem</span>
+              <span>
+                Đường dẫn
+              </span>
             </th>
             <th>Thao tác</th>
           </tr>
         </thead>
         <tbody>
-          <%= render @posts %>
+          <%= render @categories %>
         </tbody>
       </table>
       <div class="pagination">
@@ -57,4 +58,4 @@
   </div>
 <% end %>
 
-<%= render "admin/posts/modals/delete_modal" %>
+<%= render "admin/categories/modals/delete_modal" %>

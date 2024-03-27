@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_25_133132) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_27_063922) do
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_133132) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
+  create_table "categories", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.text "image_url"
+    t.string "seo_title"
+    t.text "seo_description"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
+
   create_table "ckeditor_assets", charset: "utf8mb4", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -60,6 +72,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_133132) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "ip_view_posts", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "post_id"
+    t.string "ip_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|

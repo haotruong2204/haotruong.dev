@@ -25,7 +25,7 @@
           <label for="feature-image" class="form-label">Ảnh bìa</label>
           <div class="field__image"
             <% if f.object.cover_image.present? %>
-              style='background-image: url("<%= f.object.corver_image.url.to_s.split("?").first %>"); background-size:100% 100%'
+              style='background-image: url("<%= url_for(f.object.cover_image) %>"); background-size:100% 100%'
             <% end %>
           >
             <% if f.object&.cover_image&.id.present? %>
@@ -130,7 +130,7 @@
         <div class="field">
           <label for="category" class="form-label font-600">Category</label>
           <div>
-            <%#= f.collection_select :category_id, Category.all, :id, :title, {}, class: "select2",
+            <%= f.collection_select :category_id, Category.all, :id, :title, {}, class: "select2",
               style: "width:100%" %>
           </div>
         </div>
@@ -154,8 +154,8 @@
 
   <div class="btns-control">
     <%= link_to admin_posts_path, class: "none-decoration" do %>
-      <button class="btns-control__cancel" type="button">Cancel</button>
+      <button class="btns-control__cancel" type="button">Hủy</button>
     <% end %>
-    <%= f.submit 'Save', class: "btns-control__save"%>
+    <%= f.submit 'Lưu', class: "btns-control__save"%>
   </div>
 <% end %>

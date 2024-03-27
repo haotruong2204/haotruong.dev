@@ -11,7 +11,7 @@
   <td>
     <div class="post__image">
       <% if post.cover_image.present? %>
-        <%= image_tag post.cover_image.url.to_s.split("?").first, class: "size-80" %>
+        <%= image_tag post.cover_image, class: "size-80" %>
       <% else %>
         <img src="<%= asset_path("80x80.png") %>" alt="icon-default">
       <% end %>
@@ -44,7 +44,15 @@
     <div class="post__slug">
       <span><img src="<%= asset_path("icon/tag-2.svg") %>" alt="icon-slug"></span>
     </div>
+    <div class="post__slug">
+      <span><img src="<%= asset_path("icon/folder.svg") %>" alt="icon-slug"></span>
+      <span><%= post.category&.title %></span>
+    </div>
   </td>
+  <td>
+    <div class="post__view">
+      <span><%= post.view_count %></span>
+    </div>
   <td>
     <div class="post__action d-none">
       <div class="action-edit">

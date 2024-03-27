@@ -28,11 +28,13 @@
 class Post < ApplicationRecord
   strip_attributes
 
+  has_many :ip_view_posts, dependent: :destroy
+  belongs_to :category
   belongs_to :admin
 
   enum status: { hidden: 1, visible: 2 }
 
-  validates :title, :slug, presence: true
+  validates :title, :slug, :category_id, presence: true
   validates :title, uniqueness: true
 
   has_one_attached :cover_image
@@ -45,5 +47,13 @@ class Post < ApplicationRecord
     def ransackable_attributes _auth_object = nil
       %w[title description]
     end
+  end
+
+  def increment_view ip_address
+    ip_check = ip_view_posts.where(ip_address:)
+    return if ip_check.present?
+
+    ip_view_posts.create(ip_address:)
+    increment! :view_count
   end
 end

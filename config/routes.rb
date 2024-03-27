@@ -12,6 +12,16 @@ Rails.application.routes.draw do
   namespace :admin do
     root "dashboard#index"
     devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
-    resources :posts, param: :slug
+    resources :posts, param: :slug do
+      member do
+        delete :delete_image_attachment
+      end
+    end
+
+    resources :categories, param: :slug do
+      member do
+        delete :delete_image_attachment
+      end
+    end
   end
 end

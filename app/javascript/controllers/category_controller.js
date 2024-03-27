@@ -19,11 +19,11 @@ export default class extends Controller {
 
   openModal() {
     const modalDelete = document.querySelector("#modal-delete-category");
-    const categoryId = this.element.querySelector(".action-delete").dataset.id;
+    const categorySlug = this.element.querySelector(".action-delete").dataset.slug;
 
     modalDelete.classList.remove("d-none");
     document.body.classList.add("overflow-hide");
-    modalDelete.dataset.id = categoryId;
+    modalDelete.dataset.slug = categorySlug;
   }
 
   closeModal() {
@@ -34,8 +34,8 @@ export default class extends Controller {
   }
 
   removeCategory() {
-    const categoryId = this.element.dataset.id;
-    const url = `/admin/categories/${categoryId}`
+    const categorySlug = this.element.dataset.slug;
+    const url = `/admin/categories/${categorySlug}`
     let token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
     fetch(url, {

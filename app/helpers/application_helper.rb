@@ -5,7 +5,7 @@ module ApplicationHelper
 
   FLASH_TYPE = {
     success: "success", error: "error", failed: "failed",
-    alert: "error", notice: "success", danger: "danger"
+    alert: "success", notice: "success", danger: "danger"
   }.freeze
 
   def flash_class flash_type
