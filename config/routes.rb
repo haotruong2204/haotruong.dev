@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  require 'sidekiq/web'
+  require "sidekiq/web"
+  require "sidekiq-status/web"
 
   mount Ckeditor::Engine => "/ckeditor"
   mount Sidekiq::Web => "/sidekiq"
 
   root "client/dashboard#index"
   scope module: "client", path: "", as: "" do
+    devise_for :accounts, path: "", path_names: { sign_in: "login", sign_out: "logout" }
+    
     resources :posts, param: :slug, only: :show
   end
 

@@ -281,7 +281,8 @@ a:hover {
 .page-top .nav {
   list-style: none;
   font-weight: 700;
-  font-size: 14px
+  font-size: 14px;
+  max-width: 660px;
 }
 
 .page-top .nav ul {
@@ -297,7 +298,10 @@ a:hover {
 .page-top .nav li {
   position: relative;
   display: initial;
-  padding-right: 15px
+  padding-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .page-top .nav li:not(:last-child):after {
@@ -1092,7 +1096,7 @@ a.btn {
     text-decoration: none;
     font-size: 18px;
     display: block;
-    padding: 10px;
+    padding: 10px 0;
     margin-right: 20px;
     text-align: right;
     -webkit-transform: translate(0, 100px);
@@ -1282,13 +1286,6 @@ a.btn {
   right: -35px;
   top: -1px;
 }
-.page-top .nav ul li img {
-  width: 22px;
-  position: absolute;
-  right: -10px;
-  top: -4px;
-  border-radius: 50%;
-}
 .comment {
   border: 1px solid #d1d1d1;
   border-radius: 10px;
@@ -1421,4 +1418,42 @@ a.reply {
 
 .code {
   background-color: rgba(27,31,35,0.05);
+}
+
+.mobile ul {
+ padding: 1.4rem;
+}
+
+a.logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile ul a.logout {
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+a.logout img{
+  margin-right: 4px;
+}
+
+.mobile ul span {
+  font-size: 18px;
+}
+
+.login {
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+  color: #525252;
+}
+
+.mobile .login {
+  background: #d3d2d7;
 }

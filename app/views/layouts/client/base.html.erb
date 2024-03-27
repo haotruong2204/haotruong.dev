@@ -35,11 +35,21 @@
       <span id="line_one"></span>
       <span id="line_two"></span>
     </div>
-    <div class="menu">
+    <div class="menu mobile">
       <nav>
         <ul>
           <li>
-            <a href=""><span>Login with google</span></a>
+            <% if account_signed_in? %>
+              <span>Chào, <%= current_account.full_name %>!</span>
+              <%= link_to destroy_account_session_path, class: "logout" do %>
+                <%= image_tag("icon/log-out.svg", alt: "icon logout") %>
+                <span>Đăng xuất</span>
+              <% end %>
+            <% else %>
+              <%= button_to account_google_oauth2_omniauth_authorize_path, method: :post, data: {turbo: "false"}, class: "login" do %>
+                Đăng nhập với Google
+              <% end %>
+            <% end %>
           </li>
         </ul>
       </nav>
@@ -51,7 +61,17 @@
         <div class="nav">
           <ul>
             <li>
-              <a href=""><span>Login with google</span></a>
+              <% if account_signed_in? %>
+                <span>Chào, <%= current_account.full_name %>!</span>
+                <%= link_to destroy_account_session_path, class: "logout" do %>
+                  <%= image_tag("icon/log-out-2.svg", alt: "icon logout") %>
+                  <span>Đăng xuất</span>
+                <% end %>
+              <% else %>
+                <%= button_to account_google_oauth2_omniauth_authorize_path, method: :post, data: {turbo: "false"}, class: "login" do %>
+                  Đăng nhập với Google
+                <% end %>
+              <% end %>
             </li>
           </ul>
         </div>
