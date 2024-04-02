@@ -36,14 +36,13 @@
 #
 class Account < ApplicationRecord
   devise :database_authenticatable, :async, :rememberable, :trackable, :lockable,
-  :omniauthable, :validatable, omniauth_providers: [:google_oauth2, :facebook]
+  :omniauthable, :validatable, omniauth_providers: [:google_oauth2]
 
-  has_many :records
-  has_many :histories
+  has_many :comments, dependent: :destroy
 
   ATTRS = [:role].freeze
 
-  enum role: { normal: "normal", advanced: "advanced" }
+  enum role: { normal: "normal", admin: "admin" }
 
   before_save :set_user_name
 

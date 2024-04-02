@@ -8,8 +8,15 @@ Rails.application.routes.draw do
   root "client/dashboard#index"
   scope module: "client", path: "", as: "" do
     devise_for :accounts, path: "", path_names: { sign_in: "login", sign_out: "logout" }
-    
+
     resources :posts, param: :slug, only: :show
+
+    resources :comments, only: [:create, :destroy, :edit] do
+      collection do
+        get :show_subcomment
+        post :create_subcomment
+      end
+    end
   end
 
   namespace :admin do
